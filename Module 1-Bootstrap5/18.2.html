@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <title>Exercise 18.2</title>
+</head>
+<body>
+
+    <div class="container mt-5">
+
+        <h1 class="text-center mb-4">
+            Bootstrap Accordion
+        </h1>
+
+        <div class="accordion" id="myAccordion">
+
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne">
+
+                        Section 1
+
+                    </button>
+
+                </h2>
+
+                <div id="collapseOne"
+                     class="accordion-collapse collapse show"
+                     data-bs-parent="#myAccordion">
+
+                    <div class="accordion-body">
+
+                        This is the content of section 1.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo">
+
+                        Section 2
+
+                    </button>
+
+                </h2>
+
+                <div id="collapseTwo"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#myAccordion">
+
+                    <div class="accordion-body">
+
+                        This is the content of section 2.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree">
+
+                        Section 3
+
+                    </button>
+
+                </h2>
+
+                <div id="collapseThree"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#myAccordion">
+
+                    <div class="accordion-body">
+
+                        This is the content of section 3.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
