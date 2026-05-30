@@ -1,0 +1,426 @@
+```html id="j6t2ra"
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+
+    <style>
+
+        #welcomeBanner{
+            background-color: blue;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .highlight{
+            background-color: yellow;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        .eventImage{
+            width: 200px;
+            height: 140px;
+            border: 3px solid black;
+            border-radius: 5px;
+        }
+
+        table{
+            margin-top: 20px;
+        }
+
+        td{
+            padding: 15px;
+            text-align: center;
+        }
+
+        form{
+            width: 400px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        input,
+        select,
+        textarea{
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        button{
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        output{
+            display: block;
+            margin-top: 15px;
+            color: blue;
+            font-weight: bold;
+        }
+
+        #fee{
+            color: red;
+            font-weight: bold;
+        }
+
+        #charCount{
+            color: blue;
+            font-weight: bold;
+        }
+        
+
+video{
+    margin-top: 20px;
+    border: 3px solid black;
+    border-radius: 8px;
+}
+
+#videoMessage{
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+
+        <a href="help.html" target="_blank">
+            Help
+        </a>
+    </nav>
+
+    <!-- Main -->
+
+    <main>
+
+        <!-- Home Section -->
+
+        <section id="home">
+
+            <div id="welcomeBanner">
+
+                Welcome to Local Community Event Portal
+
+                <span style="color:red; font-weight:bold;">
+                    Special Offer: Free Registration Today!
+                </span>
+
+            </div>
+
+            <p class="highlight">
+                Residents can register for events and access services easily.
+            </p>
+
+        </section>
+
+        <!-- Events Section -->
+
+        <section id="events">
+
+            <h2 class="highlight">
+                Community Event Gallery
+            </h2>
+
+            <table border="1">
+
+                <tr>
+
+                    <td>
+                        <img src="https://via.placeholder.com/200x140"
+                             alt="Music Event"
+                             title="Music Event"
+                             class="eventImage"
+                             ondblclick="enlargeImage(this)">
+
+                        <p>Music Event</p>
+                    </td>
+
+                    <td>
+                        <img src="https://via.placeholder.com/200x140"
+                             alt="Food Festival"
+                             title="Food Festival"
+                             class="eventImage"
+                             ondblclick="enlargeImage(this)">
+
+                        <p>Food Festival</p>
+                    </td>
+
+                    <td>
+                        <img src="https://via.placeholder.com/200x140"
+                             alt="Sports Meet"
+                             title="Sports Meet"
+                             class="eventImage"
+                             ondblclick="enlargeImage(this)">
+
+                        <p>Sports Meet</p>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <img src="https://via.placeholder.com/200x140"
+                             alt="Dance Program"
+                             title="Dance Program"
+                             class="eventImage"
+                             ondblclick="enlargeImage(this)">
+
+                        <p>Dance Program</p>
+                    </td>
+
+                    <td>
+                        <img src="https://via.placeholder.com/200x140"
+                             alt="Book Fair"
+                             title="Book Fair"
+                             class="eventImage"
+                             ondblclick="enlargeImage(this)">
+
+                        <p>Book Fair</p>
+                    </td>
+
+                    <td>
+                        <img src="https://via.placeholder.com/200x140"
+                             alt="Art Exhibition"
+                             title="Art Exhibition"
+                             class="eventImage"
+                             ondblclick="enlargeImage(this)">
+
+                        <p>Art Exhibition</p>
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Registration Form Section -->
+
+        <section>
+
+            <h2 class="highlight">
+                Event Registration Form
+            </h2>
+
+            <form>
+
+                <label>Full Name</label>
+
+                <input type="text"
+                       placeholder="Enter your name"
+                       required
+                       autofocus>
+
+                <label>Email</label>
+
+                <input type="email"
+                       placeholder="Enter your email"
+                       required>
+
+                <label>Phone Number</label>
+
+                <input type="text"
+                       id="phone"
+                       placeholder="Enter phone number"
+                       onblur="validatePhone()">
+
+                <label>Event Date</label>
+
+                <input type="date"
+                       required>
+
+                <label>Select Event Type</label>
+
+                <select id="eventType"
+                        onchange="showFee()"
+                        required>
+
+                    <option value="">
+                        Choose Event
+                    </option>
+
+                    <option value="500">
+                        Music Event
+                    </option>
+
+                    <option value="300">
+                        Food Festival
+                    </option>
+
+                    <option value="200">
+                        Sports Meet
+                    </option>
+
+                </select>
+
+                <p id="fee"></p>
+
+                <label>Feedback</label>
+
+                <textarea id="feedback"
+                          rows="5"
+                          placeholder="Enter your feedback"
+                          onkeyup="countCharacters()">
+                </textarea>
+
+                <p id="charCount">
+                    Characters: 0
+                </p>
+
+                <button type="button"
+                        onclick="showConfirmation()">
+
+                    Submit
+
+                </button>
+
+                <output id="message"></output>
+
+            </form>
+
+        </section>
+```html
+<!-- Video Section -->
+
+<section>
+
+    <h2 class="highlight">
+        Event Promo Video
+    </h2>
+
+    <video width="500"
+           controls
+           oncanplay="videoReady()">
+
+        <source src="sample.mp4"
+                type="video/mp4">
+
+        Your browser does not support video.
+
+    </video>
+
+    <p id="videoMessage"></p>
+
+</section>
+```
+
+        <!-- Contact Section -->
+
+        <section id="contact">
+
+            <h2>Contact</h2>
+
+            <p class="highlight">
+                Email: community@gmail.com
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>© 2026 Local City Council</p>
+
+    </footer>
+
+    <script>
+
+        function validatePhone(){
+
+            let phone =
+            document.getElementById("phone").value;
+
+            if(phone.length != 10 || isNaN(phone)){
+
+                alert("Please enter a valid 10 digit phone number");
+
+            }
+
+        }
+
+        function showFee(){
+
+            let fee =
+            document.getElementById("eventType").value;
+
+            document.getElementById("fee").innerHTML =
+            "Event Fee: ₹" + fee;
+
+        }
+
+        function showConfirmation(){
+
+            document.getElementById("message").value =
+            "Registration Successful!";
+
+            alert("Thank you for registering!");
+
+        }
+
+        function enlargeImage(image){
+
+            image.style.width = "300px";
+            image.style.height = "220px";
+
+        }
+
+        function countCharacters(){
+
+            let text =
+            document.getElementById("feedback").value;
+
+            document.getElementById("charCount").innerHTML =
+            "Characters: " + text.length;
+
+        }
+        
+function videoReady(){
+
+    document.getElementById("videoMessage").innerHTML =
+    "Video ready to play";
+
+}
+
+window.onbeforeunload = function(){
+
+    return "Your form is not submitted. Are you sure you want to leave?";
+
+}
+
+
+
+    </script>
+
+</body>
+
+</html>
+
